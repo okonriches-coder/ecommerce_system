@@ -1,0 +1,244 @@
+{% extends 'store/base.html' %}
+{% load static %}
+
+{% block content %}
+
+<style>
+
+:root{
+    --primary:#d35400;
+    --secondary:#ffb703;
+    --light:#fff8ef;
+    --dark:#333;
+    --shadow:0 5px 15px rgba(0,0,0,.08);
+}
+
+/* Checkout Success Card */
+
+.checkout-section{
+    max-width:900px;
+    margin:40px auto;
+    background:#fff;
+    border-radius:20px;
+    padding:50px;
+    text-align:center;
+    box-shadow:var(--shadow);
+}
+
+.success-icon{
+    width:120px;
+    height:120px;
+    margin:0 auto 25px;
+    background:#e8f5e9;
+    border-radius:50%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:60px;
+    color:#2e7d32;
+}
+
+.checkout-title{
+    font-size:2.5rem;
+    color:var(--dark);
+    margin-bottom:15px;
+}
+
+.checkout-message{
+    color:#666;
+    font-size:1.1rem;
+    line-height:1.8;
+    max-width:600px;
+    margin:auto;
+}
+
+.order-box{
+    margin-top:35px;
+    background:var(--light);
+    padding:25px;
+    border-radius:15px;
+}
+
+.order-box h3{
+    color:var(--primary);
+    margin-bottom:10px;
+}
+
+.order-box p{
+    color:#555;
+}
+
+/* Buttons */
+
+.action-buttons{
+    display:flex;
+    justify-content:center;
+    gap:15px;
+    margin-top:35px;
+    flex-wrap:wrap;
+}
+
+.btn-primary-custom{
+    background:var(--primary);
+    color:#fff;
+    text-decoration:none;
+    padding:14px 30px;
+    border-radius:10px;
+    font-weight:600;
+    transition:.3s;
+}
+
+.btn-primary-custom:hover{
+    background:#b84300;
+}
+
+.btn-secondary-custom{
+    background:var(--secondary);
+    color:#111;
+    text-decoration:none;
+    padding:14px 30px;
+    border-radius:10px;
+    font-weight:600;
+}
+
+.btn-secondary-custom:hover{
+    opacity:.9;
+}
+
+/* Features */
+
+.features-section{
+    margin-top:50px;
+}
+
+.features-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:20px;
+}
+
+.feature-card{
+    background:#fff;
+    border-radius:15px;
+    padding:25px;
+    text-align:center;
+    box-shadow:var(--shadow);
+}
+
+.feature-card h4{
+    margin-top:10px;
+    margin-bottom:10px;
+}
+
+/* Banner */
+
+.checkout-banner{
+    margin-top:50px;
+    background:var(--secondary);
+    padding:25px;
+    border-radius:15px;
+    text-align:center;
+    font-size:1.2rem;
+    font-weight:700;
+}
+
+@media(max-width:768px){
+
+    .checkout-section{
+        padding:30px;
+    }
+
+    .checkout-title{
+        font-size:2rem;
+    }
+
+}
+
+</style>
+
+<!-- SUCCESS SECTION -->
+
+<section class="checkout-section">
+
+    <div class="success-icon">
+        ✓
+    </div>
+
+    <h1 class="checkout-title">
+        Order Placed Successfully
+    </h1>
+
+    <p class="checkout-message">
+        Thank you for shopping with Richbest.
+        Your order has been received and is being processed.
+        You will receive updates regarding your order status soon.
+    </p>
+
+    <div class="order-box">
+
+        <h3>🎉 Thank You For Your Purchase</h3>
+
+        <p>
+            We appreciate your trust in Richbest.
+            Our team is preparing your order for delivery.
+        </p>
+
+    </div>
+
+    <div class="action-buttons">
+
+        <a href="{% url 'home' %}"
+           class="btn-primary-custom">
+            Continue Shopping
+        </a>
+
+        <a href="{% url 'cart' %}"
+           class="btn-secondary-custom">
+            View Cart
+        </a>
+
+    </div>
+
+</section>
+
+<!-- FEATURES -->
+
+<section class="features-section">
+
+    <div class="features-grid">
+
+        <div class="feature-card">
+            🚚
+            <h4>Fast Delivery</h4>
+            <p>Quick nationwide shipping.</p>
+        </div>
+
+        <div class="feature-card">
+            🔒
+            <h4>Secure Payment</h4>
+            <p>Protected and secure checkout.</p>
+        </div>
+
+        <div class="feature-card">
+            ⭐
+            <h4>Premium Quality</h4>
+            <p>Trusted products from verified sellers.</p>
+        </div>
+
+        <div class="feature-card">
+            💬
+            <h4>24/7 Support</h4>
+            <p>Our support team is always available.</p>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- PROMOTIONAL BANNER -->
+
+<div class="checkout-banner">
+    🎁 Thank You For Choosing Richbest — Enjoy More Deals On Your Next Purchase
+</div>
+
+{% endblock %}

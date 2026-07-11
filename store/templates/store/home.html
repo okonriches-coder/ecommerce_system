@@ -1,0 +1,350 @@
+{% extends 'store/base.html' %}
+
+{% load static %}
+{% block content %}
+
+<style>
+
+:root{
+    --primary:#d35400;
+    --secondary:#ffb703;
+    --light:#fff8ef;
+    --dark:#333;
+    --shadow:0 5px 15px rgba(0,0,0,.08);
+}
+
+.hero-section{
+    background:var(--light);
+    border-radius:20px;
+    padding:60px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:40px;
+    margin-bottom:60px;
+    overflow:hidden;
+}
+
+.hero-content{
+    flex:1;
+}
+
+.badge-quality{
+    display:inline-block;
+    background:#b8860b;
+    color:#fff;
+    padding:10px 20px;
+    border-radius:50px;
+    margin-bottom:20px;
+    font-size:14px;
+    font-weight:600;
+}
+
+.hero-content h1{
+    font-size:4rem;
+    font-weight:900;
+    color:var(--primary);
+    line-height:1.1;
+    margin-bottom:20px;
+}
+
+.hero-content p{
+    font-size:1.15rem;
+    color:#555;
+    max-width:600px;
+}
+
+.offer-box{
+    margin-top:25px;
+    background:var(--secondary);
+    color:#111;
+    padding:18px 25px;
+    border-radius:12px;
+    font-weight:700;
+    display:inline-block;
+}
+
+.hero-image{
+    flex:1;
+    text-align:center;
+}
+
+.hero-image img{
+    width:100%;
+    max-width:500px;
+}
+
+/* Categories */
+
+.category-section{
+    margin:70px 0;
+}
+
+.section-title{
+    text-align:center;
+    font-size:2.3rem;
+    font-weight:800;
+    margin-bottom:35px;
+    color:var(--dark);
+}
+
+.category-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:25px;
+}
+
+.category-card{
+    background:#fff;
+    padding:35px 20px;
+    border-radius:15px;
+    text-align:center;
+    box-shadow:var(--shadow);
+    transition:.3s;
+    font-size:1.2rem;
+    font-weight:600;
+}
+
+.category-card:hover{
+    transform:translateY(-5px);
+}
+
+/* Products */
+
+.products-title{
+    text-align:center;
+    font-size:2.5rem;
+    font-weight:800;
+    margin-bottom:40px;
+    color:var(--dark);
+}
+
+.product-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:25px;
+}
+
+.product-card{
+    background:#fff;
+    border-radius:15px;
+    overflow:hidden;
+    box-shadow:var(--shadow);
+    transition:.3s;
+}
+
+.product-card:hover{
+    transform:translateY(-6px);
+}
+
+.product-card img{
+    width:100%;
+    height:260px;
+    object-fit:cover;
+}
+
+.product-body{
+    padding:20px;
+}
+
+.product-body h4{
+    margin-bottom:10px;
+    font-size:1.2rem;
+    color:#222;
+}
+
+.product-price{
+    color:#e67e22;
+    font-size:24px;
+    font-weight:bold;
+    margin-bottom:15px;
+}
+
+.btn-view{
+    display:inline-block;
+    background:var(--primary);
+    color:#fff;
+    text-decoration:none;
+    padding:10px 20px;
+    border-radius:8px;
+    transition:.3s;
+}
+
+.btn-view:hover{
+    background:#b84300;
+    color:#fff;
+}
+
+/* Promotion Banner */
+
+.delivery-banner{
+    background:var(--secondary);
+    padding:30px;
+    border-radius:15px;
+    text-align:center;
+    font-size:1.4rem;
+    font-weight:700;
+    margin-top:60px;
+    margin-bottom:30px;
+}
+
+/* Empty Products */
+
+.empty-products{
+    text-align:center;
+    padding:50px;
+    background:#fff;
+    border-radius:15px;
+    box-shadow:var(--shadow);
+}
+
+/* Mobile */
+
+@media(max-width:768px){
+
+    .hero-section{
+        flex-direction:column;
+        text-align:center;
+        padding:40px 25px;
+    }
+
+    .hero-content h1{
+        font-size:2.5rem;
+    }
+
+    .products-title,
+    .section-title{
+        font-size:2rem;
+    }
+
+}
+
+</style>
+
+<!-- HERO SECTION -->
+
+<section class="hero-section">
+
+    <div class="hero-content">
+
+        <span class="badge-quality">
+            Premium Quality Products
+        </span>
+
+        <h1>
+            Upgrade Your Shopping Experience
+        </h1>
+
+        <p>
+            Discover quality products at unbeatable prices.
+            Enjoy fast delivery, secure payments, and excellent
+            customer support from our trusted online store.
+        </p>
+
+        <div class="offer-box">
+            🚚 Free Delivery on Orders Above ₦100,000
+        </div>
+
+    </div>
+
+    <div class="hero-image">
+        <img src="{% static 'images/img.png' %}"
+             alt="Shopping Banner">
+    </div>
+
+</section>
+
+<!-- CATEGORY SECTION -->
+
+<section class="category-section">
+
+    <h2 class="section-title">
+        Shop By Category
+    </h2>
+
+    <div class="category-grid">
+
+        <div class="category-card">
+            📱 Electronics
+        </div>
+
+        <div class="category-card">
+            👕 Fashion
+        </div>
+
+        <div class="category-card">
+            🏠 Home Essentials
+        </div>
+
+        <div class="category-card">
+            💄 Beauty
+        </div>
+
+    </div>
+
+</section>
+
+<!-- PRODUCTS -->
+
+<h2 class="products-title">
+    Featured Products
+</h2>
+
+{% if products %}
+
+<div class="product-grid">
+
+    {% for product in products %}
+
+    <div class="product-card">
+
+        {% if product.image %}
+            <img src="{{ product.image.url }}"
+                 alt="{{ product.name }}">
+        {% else %}
+            <img src="{% static 'images/no_img.png' %}"
+                 alt="No Image">
+        {% endif %}
+
+        <div class="product-body">
+
+            <h4>{{ product.name }}</h4>
+
+            <p class="product-price">
+                ₦{{ product.price }}
+            </p>
+
+            <a href="{% url 'product_detail' product.id %}"
+               class="btn-view">
+                View Product
+            </a>
+
+        </div>
+
+    </div>
+
+    {% endfor %}
+
+</div>
+
+{% else %}
+
+<div class="empty-products">
+
+    <h3>No Products Available</h3>
+
+    <p>
+        Products will appear here once they are added by the administrator.
+    </p>
+
+</div>
+
+{% endif %}
+
+<!-- PROMOTION -->
+
+<div class="delivery-banner">
+    🎉 Special Discounts Available This Week
+</div>
+
+{% endblock %}

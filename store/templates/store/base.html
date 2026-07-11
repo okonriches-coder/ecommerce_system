@@ -1,0 +1,176 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Richbest Store</title>
+
+    <style>
+
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family:Arial, Helvetica, sans-serif;
+        }
+
+        body{
+            background:#f5f5f5;
+            display:flex;
+            flex-direction:column;
+            min-height:100vh;
+        }
+
+        header{
+            background:#1f2937;
+            color:white;
+            padding:18px 40px;
+        }
+
+        .header-container{
+            display:flex;
+            justify-content:space-between;
+            align-items:center;
+            flex-wrap:wrap;
+        }
+
+        .logo{
+            font-size:28px;
+            font-weight:bold;
+        }
+
+        nav ul{
+            list-style:none;
+            display:flex;
+            gap:25px;
+        }
+
+        nav a{
+            text-decoration:none;
+            color:white;
+            font-weight:bold;
+            transition:.3s;
+        }
+
+        nav a:hover{
+            color:#fbbf24;
+        }
+
+        .container{
+            width:90%;
+            max-width:1200px;
+            margin:40px auto;
+            flex:1;
+        }
+
+        footer{
+            background:#111827;
+            color:white;
+            text-align:center;
+            padding:30px;
+            margin-top:40px;
+        }
+
+        .footer-links{
+            margin:15px 0;
+        }
+
+        .footer-links a{
+            color:#ddd;
+            text-decoration:none;
+            margin:0 10px;
+        }
+
+        .footer-links a:hover{
+            color:#fbbf24;
+        }
+
+        .social-links a{
+            color:white;
+            text-decoration:none;
+            margin:0 10px;
+        }
+
+        .social-links a:hover{
+            color:#fbbf24;
+        }
+
+    </style>
+
+</head>
+<body>
+
+<header>
+
+<div class="header-container">
+
+<div class="logo">
+Richbest Store
+</div>
+
+<nav>
+
+<ul>
+
+<li><a href="{% url 'home' %}">Home</a></li>
+
+<li><a href="{% url 'about' %}">About Us</a></li>
+
+<li><a href="{% url 'news' %}">News</a></li>
+
+<li><a href="{% url 'support' %}">Support</a></li>
+
+<li><a href="{% url 'register' %}">Get Started</a></li>
+
+</ul>
+
+</nav>
+
+</div>
+
+</header>
+
+
+<div class="container">
+
+{% block content %}
+{% endblock %}
+
+</div>
+
+
+<footer>
+
+<p>&copy; {% now "Y" %} Richbest Store. All Rights Reserved.</p>
+
+<div class="footer-links">
+
+<a href="#">Privacy Policy</a> |
+
+<a href="#">Terms of Use</a> |
+
+<a href="#">Disclaimer</a>
+
+</div>
+
+<div class="social-links">
+
+<h4>Follow Us</h4>
+
+<a href="#">Facebook</a> |
+
+<a href="#">Instagram</a> |
+
+<a href="#">X</a> |
+
+<a href="#">LinkedIn</a> |
+
+<a href="#">YouTube</a>
+
+</div>
+
+</footer>
+
+</body>
+</html>
